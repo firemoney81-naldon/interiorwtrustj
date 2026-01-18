@@ -1,23 +1,591 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+        <!-- Schema.org JSON-LD for Search Snippet Optimization -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "23평 아파트 인테리어",
+          "provider": {
+            "@type": "Organization",
+            "name": "성공적인 23평 인테리어 전문가 그룹",
+            "url": "https://yourdomain.com",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+82-10-1234-5678",
+              "contactType": "고객 서비스",
+              "areaServed": "경기도 안산시"
+            }
+          },
+          "areaServed": [
+            { "@type": "City", "name": "서울시" },
+            { "@type": "State", "name": "경기도" }
+          ],
+          "description": "23평 아파트 인테리어 비용, 견적, 시공 사례 비교 및 최신 트렌드 가이드 제공",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "인테리어 서비스 옵션",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "23평 전체 리모델링"
+                },
+                "price": "15000000",
+                "priceCurrency": "KRW",
+                "description": "올수리 인테리어, 2026년 기준 평당가 평균 150만원부터"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "부분 인테리어 (주방/욕실)"
+                },
+                "price": "3000000",
+                "priceCurrency": "KRW",
+                "description": "주방, 욕실 등 특정 공간만 리모델링하는 실속형 서비스"
+              }
+            ]
+          }
+        }
+        </script>
+
+        <!-- Google Fonts: Noto Sans KR for Korean text -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap">
+
+        <!-- Custom CSS for modern, soft design -->
+        <style>
+            :root {
+                --primary-color: #3f51b5; /* Soft Blue-Purple */
+                --secondary-color: #ffc107; /* Soft Yellow-Orange */
+                --background-color: #f4f6f9; /* Light Gray Background */
+                --text-color: #333333;
+                --subtle-gray: #e0e0e0; /* Subtle Separator/Border */
+                --light-blue-bg: #e8f0fe; /* Light Blue for highlights */
+            }
+
+            body {
+                font-family: 'Noto Sans KR', sans-serif;
+                margin: 0;
+                padding: 0;
+                line-height: 1.7;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                word-break: keep-all; /* Prevents awkward line breaks for Korean text */
+            }
+
+            header {
+                background-color: white;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                border-bottom: 3px solid var(--primary-color);
+                padding: 1.5rem 0;
+            }
+
+            .header-content {
+                max-width: 1080px;
+                margin: 0 auto;
+                padding: 0 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            h1 {
+                font-weight: 800;
+                font-size: 2.2rem;
+                color: var(--primary-color);
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            h2 {
+                color: var(--primary-color);
+                font-size: 1.8rem;
+                font-weight: 700;
+                border-bottom: 2px solid var(--primary-color);
+                display: inline-block;
+                padding-bottom: 0.5rem;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                color: var(--text-color);
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-top: 1.5rem;
+            }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+                font-size: 1rem;
+            }
+
+            nav a:hover {
+                color: var(--secondary-color);
+            }
+
+            main {
+                max-width: 1080px;
+                margin: 2rem auto;
+                padding: 0 1rem;
+                background-color: white;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+                border-radius: 12px;
+            }
+
+            section {
+                padding: 2rem 0;
+                border-top: 1px dashed var(--subtle-gray);
+            }
+
+            section:first-child {
+                border-top: none;
+            }
+
+            p {
+                margin-bottom: 1rem;
+                font-size: 1rem;
+            }
+
+            .highlight {
+                color: var(--primary-color);
+                font-weight: 700;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--secondary-color);
+                color: white;
+                font-weight: 700;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                text-decoration: none;
+                margin: 1.5rem 0;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                text-align: center;
+                font-size: 1.1rem;
+            }
+
+            .cta-button:hover {
+                background-color: #fbc02d; /* Darker secondary color on hover */
+                transform: translateY(-2px);
+            }
+
+            .keyword-tags {
+                margin: 1.5rem 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .keyword-tags a {
+                background-color: var(--light-blue-bg);
+                color: var(--primary-color);
+                padding: 8px 16px;
+                border-radius: 25px;
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+                white-space: nowrap; /* Prevent keywords from splitting lines */
+            }
+
+            .keyword-tags a:hover {
+                background-color: var(--primary-color);
+                color: white;
+            }
+
+            /* Table Styling */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            th, td {
+                padding: 1rem;
+                border: 1px solid var(--subtle-gray);
+                text-align: center;
+                font-size: 1rem;
+            }
+
+            th {
+                background-color: var(--primary-color);
+                color: white;
+                font-weight: 700;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            /* FAQ Accordion Styling */
+            dl dt {
+                font-weight: 700;
+                margin-top: 1rem;
+                padding: 1rem;
+                border-bottom: 1px solid var(--subtle-gray);
+                cursor: pointer;
+                color: var(--primary-color);
+                background-color: var(--light-blue-bg);
+                border-radius: 6px;
+                transition: background-color 0.3s ease;
+            }
+
+            dl dt:hover {
+                background-color: #d1e3ff;
+            }
+
+            dl dt.active {
+                background-color: var(--primary-color);
+                color: white;
+            }
+
+            dl dd {
+                padding: 1rem;
+                margin-left: 0;
+                border: 1px solid var(--subtle-gray);
+                border-top: none;
+                border-radius: 0 0 6px 6px;
+                background-color: white;
+                display: none;
+            }
+
+            dl dt.active + dd {
+                display: block;
+            }
+
+            /* Input Form Styling */
+            form {
+                background-color: var(--light-blue-bg);
+                padding: 2rem;
+                border-radius: 12px;
+                margin-top: 2rem;
+            }
+
+            label {
+                display: block;
+                font-weight: 600;
+                margin-top: 1rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary-color);
+            }
+
+            input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+                width: calc(100% - 20px);
+                padding: 10px;
+                margin-bottom: 1rem;
+                border: 1px solid var(--subtle-gray);
+                border-radius: 6px;
+                box-sizing: border-box;
+            }
+
+            input[type="submit"] {
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                cursor: pointer;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                font-size: 1.1rem;
+                transition: background-color 0.3s ease;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #303f9f;
+            }
+
+            /* Media Queries for Responsiveness */
+            @media (max-width: 768px) {
+                h1 { font-size: 1.8rem; }
+                h2 { font-size: 1.5rem; }
+                nav ul { flex-direction: column; gap: 0.5rem; }
+                nav a { padding: 0.5rem 0; }
+                main { margin: 1rem auto; }
+            }
+
+            footer {
+                text-align: center;
+                padding: 2rem 1rem;
+                font-size: 0.9rem;
+                color: #777;
+                background-color: #e9ecef;
+                margin-top: 2rem;
+                border-top: 1px solid var(--subtle-gray);
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <h1>23평 아파트 인테리어 | 2026년 최신 가이드</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#intro">인테리어 개요</a></li>
+                        <li><a href="#cost">비용 및 견적</a></li>
+                        <li><a href="#design">디자인 팁</a></li>
+                        <li><a href="#process">진행 절차</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">견적 문의</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="intro">
+                <h2>성공적인 23평 아파트 인테리어, 2026년 트렌드 분석</h2>
+                <p><strong>23평 아파트 인테리어</strong>는 신혼부부부터 3인 가족까지 가장 보편적으로 선호하는 면적입니다. 약 76m²~80m²에 해당하는 23평은 공간 활용도에 따라 거실 확장, 주방 구조 변경, 방 추가 등 다양한 <span class="highlight">리모델링</span>이 가능합니다. 하지만 평수가 작은 만큼, 효율적인 공간 배치를 위해서는 전문적인 설계가 필수입니다. 2026년 최신 트렌드와 함께 <span class="highlight">23평 아파트 인테리어 비용</span>을 절약하면서도 만족도를 높일 수 있는 노하우를 공개합니다.</p>
+                <p>특히 최근에는 획일적인 디자인보다 개인의 라이프스타일을 반영한 맞춤형 인테리어가 대세입니다. <strong>23평 인테리어</strong>에서는 거실을 홈 오피스로 활용하거나, 방 1개를 드레스룸으로 꾸미는 등 공간 분할을 통한 기능성 확보가 중요합니다. 저희는 서울, 경기도 전 지역(강남, 송파, 안산, 시흥, 수원 등)에서 수많은 23평대 아파트 리모델링을 성공적으로 완료한 노하우를 바탕으로, 고객님의 예산에 맞는 최적의 솔루션을 제안해 드립니다.</p>
+
+                <div class="keyword-tags" aria-label="연관 키워드">
+                    <a href="#cost">23평 인테리어 비용</a>
+                    <a href="#cost">23평 아파트 리모델링</a>
+                    <a href="#design">23평 거실 인테리어</a>
+                    <a href="#design">23평 주방 인테리어</a>
+                    <a href="#cost">서울 23평 인테리어 견적</a>
+                    <a href="#cost">경기도 23평 인테리어 가격</a>
+                    <a href="#faq">인테리어 장단점</a>
+                    <a href="#contact">23평 인테리어 잘하는 곳 추천</a>
+                    <a href="#contact">23평 인테리어 싼곳</a>
+                    <a href="#contact">23평 인테리어 내돈내산 후기</a>
+                </div>
+            </section>
+
+            <section id="cost">
+                <h2>23평 아파트 인테리어 비용 상세 분석: 2026년 기준 평당가</h2>
+                <p><strong>23평 아파트 인테리어 비용</strong>은 단순히 평수만으로 결정되지 않습니다. 시공 범위(전체 리모델링 vs. 부분 수리), 자재의 등급(프리미엄 vs. 가성비), 시공 지역(서울 vs. 지방), 그리고 2026년 인건비 변동 등 여러 요인이 복합적으로 작용합니다. <span class="highlight">평균 비용</span>을 미리 알고 있다면 예산을 계획하는 데 큰 도움이 됩니다.</p>
+
+                <h3>1. 인테리어 비용 결정 요소</h3>
+                <p>인테리어 <span class="highlight">평당가</span>를 계산할 때, 인건비와 자재비의 비중이 가장 큽니다. 2026년 현재 인건비 상승 추세가 이어지고 있어, <span class="highlight">저렴한곳</span>을 찾더라도 기본적인 품질을 유지하기 위한 최소 비용은 확보해야 합니다. 특히 <span class="highlight">23평 아파트 리모델링</span>은 주방과 욕실 공사 비용이 전체 예산의 상당 부분을 차지합니다. 주방 싱크대 교체, 욕실 타일 및 위생도기 교체만으로도 <span class="highlight">23평 인테리어 비용</span>은 크게 달라질 수 있습니다.</p>
+
+                <h3>2. 23평 인테리어 예상 비용표 (2026년)</h3>
+                <p>다음 표는 <span class="highlight">23평 아파트 인테리어</span>를 진행할 때의 대략적인 <span class="highlight">평당 가격</span> 및 총 <span class="highlight">예상 금액</span>을 정리한 것입니다. 정확한 <span class="highlight">견적</span>은 현장 방문 후 산출되므로 참고용으로 활용하시기 바랍니다. 특히 <span class="highlight">서울 강남</span>이나 <span class="highlight">경기 안산</span> 등 지역별 <span class="highlight">이사 시기</span>에 따라 <span class="highlight">인테리어 가격</span> 변동폭이 클 수 있습니다.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>인테리어 범위</th>
+                            <th>2026년 평당가 예상 (원)</th>
+                            <th>총 예상 비용 (23평 기준)</th>
+                            <th>주요 시공 내용</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>부분 인테리어 (가성비)</strong></td>
+                            <td>50만원 ~ 80만원</td>
+                            <td>1,150만원 ~ 1,840만원</td>
+                            <td>벽지, 장판 교체, 페인트, 조명, 도어 교체</td>
+                        </tr>
+                        <tr>
+                            <td><strong>표준 인테리어 (가성비 &amp; 효율)</strong></td>
+                            <td>80만원 ~ 120만원</td>
+                            <td>1,840만원 ~ 2,760만원</td>
+                            <td>위 내용 + 주방(싱크대), 욕실(1개) 전체 교체, 현관 중문</td>
+                        </tr>
+                        <tr>
+                            <td><strong>전체 리모델링 (프리미엄)</strong></td>
+                            <td>120만원 ~ 180만원</td>
+                            <td>2,760만원 ~ 4,140만원</td>
+                            <td>위 내용 + 창호(샷시) 교체, 거실 확장, 구조 변경, 맞춤 가구</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>*주의: <span class="highlight">23평 아파트 인테리어 비용</span>은 2026년 기준이며, 아파트 연식(20년 이상 노후 아파트는 철거 비용 추가), 자재 선택, 추가 옵션(시스템 에어컨, 스마트 홈 등)에 따라 상이할 수 있습니다.</p>
+
+                <h3>3. 지역별 23평 인테리어 가격 차이점</h3>
+                <p><strong>23평 인테리어 견적</strong>은 지역별로 큰 <span class="highlight">차이점</span>이 있습니다. 특히 <span class="highlight">서울 인테리어</span>는 인건비와 자재 운반비가 높아 <span class="highlight">경기권</span>보다 평균 10~20%가량 <span class="highlight">가격</span>이 높습니다. 서울의 <span class="highlight">강남구</span>, <span class="highlight">서초구</span>, <span class="highlight">송파구</span> 지역은 프리미엄 자재를 선호하는 경향이 있어, <span class="highlight">평당가</span>가 더욱 높아질 수 있습니다. 반면 <span class="highlight">안산</span>, <span class="highlight">수원</span>, <span class="highlight">용인</span>, <span class="highlight">화성</span>, <span class="highlight">시흥</span>, <span class="highlight">고양</span>, <span class="highlight">부천</span> 등 <span class="highlight">경기권</span>에서는 합리적인 <span class="highlight">가격</span>대의 <span class="highlight">인테리어 업체</span>를 찾기 쉽습니다. <span class="highlight">23평 인테리어</span>를 계획할 때는 지역별 <span class="highlight">비용</span>을 꼼꼼히 <span class="highlight">비교</span>하는 것이 중요합니다.</p>
+            </section>
+
+            <section id="design">
+                <h2>성공적인 23평 아파트 인테리어 디자인 노하우</h2>
+                <p><strong>23평 아파트 인테리어</strong>는 좁은 공간을 넓고 효율적으로 보이게 하는 것이 핵심입니다. 단순히 예쁜 디자인을 넘어 실용적인 <span class="highlight">23평 리모델링</span>을 위한 몇 가지 핵심 <span class="highlight">디자인 팁</span>을 소개합니다.</p>
+
+                <h3>1. 공간 확장 효과를 위한 색상 및 조명 활용</h3>
+                <p>색상 선택은 <span class="highlight">23평 인테리어</span>에서 가장 중요한 요소 중 하나입니다. 밝은 계열의 색상(화이트, 베이지, 라이트 그레이)은 빛을 반사하여 공간을 넓어 보이게 합니다. 가구 역시 벽과 비슷한 톤으로 통일감을 주면 시각적으로 공간이 확장됩니다. 조명은 간접 조명(매립등, 라인 조명)을 사용하여 천장을 깔끔하게 정리하고, 거실 중앙의 메인 조명 대신 여러 개의 보조 조명을 설치하여 공간에 깊이감을 더하는 것이 <span class="highlight">23평 인테리어 추천</span> 방식입니다.</p>
+
+                <h3>2. 23평 아파트 주방 구조 변경 (ㄷ자, ㄱ자, 11자)</h3>
+                <p>주방은 23평 인테리어에서 가장 효율성이 요구되는 공간입니다. 기존의 좁은 주방을 <span class="highlight">리모델링</span>하여 동선을 개선하는 것이 필수입니다. <strong>23평 주방 인테리어</strong>에서 가장 많이 고려하는 구조는 'ㄷ자'형입니다. ㄷ자형 구조는 수납공간을 확보하고 조리 공간을 늘려주며, 아일랜드 식탁을 활용하여 거실과 분리된 듯한 느낌을 줍니다. <span class="highlight">23평</span> 아파트의 특성상 거실과 주방이 붙어 있는 경우가 많으므로, 이 두 공간을 자연스럽게 연결하는 디자인이 중요합니다.</p>
+
+                <h3>3. 수납 공간 극대화 및 다용도 가구 활용</h3>
+                <p><strong>23평 아파트 인테리어</strong>의 <span class="highlight">단점</span> 중 하나는 부족한 수납공간입니다. 이를 해결하기 위해 붙박이장, 템바보드 수납장 등 벽면을 활용한 매립형 수납 가구를 적극적으로 활용해야 합니다. 거실 벽면 전체를 수납장으로 만들거나, 현관 중문 옆에 팬트리를 설치하여 자투리 공간을 활용할 수 있습니다. <span class="highlight">23평</span> 공간에서는 거실 테이블을 수납형으로 선택하거나, 소파를 리클라이너로 선택하는 등 다기능성 가구를 활용하는 것이 <span class="highlight">장점</span>을 극대화하는 방법입니다.</p>
+
+                <h3>4. 23평 거실 인테리어: 확장 및 베란다 활용</h3>
+                <p><strong>23평 아파트 인테리어</strong>에서 거실 확장은 가장 흔한 시공 방법입니다. 확장을 통해 거실 공간을 넓혀 개방감을 확보할 수 있습니다. 단, 단열에 특히 신경 써야 합니다. 확장이 부담스럽다면 베란다를 홈카페, 미니 서재 등 특별한 공간으로 꾸미는 것도 좋은 방법입니다. 2026년 트렌드는 베란다를 단순히 창고로 두기보다는, 폴딩도어를 설치하여 거실과 베란다를 연결하는 다기능 공간으로 활용하는 것입니다.</p>
+            </section>
+
+            <section id="process">
+                <h2>성공적인 23평 아파트 인테리어 진행 절차 가이드</h2>
+                <p><strong>23평 인테리어</strong>를 시작하기 전에 <span class="highlight">견적</span> <span class="highlight">비교</span>와 <span class="highlight">업체 선정</span>이 가장 중요합니다. <span class="highlight">내돈내산</span> 후기를 꼼꼼히 살피고, 전문가와 충분히 소통하는 것이 성공의 지름길입니다. <span class="highlight">23평 아파트 리모델링</span>을 진행하는 표준 절차는 다음과 같습니다.</p>
+
+                <h3>1. 인테리어 준비 단계: 예산 설정 및 컨셉 확정</h3>
+                <p>먼저 <span class="highlight">23평 인테리어</span>에 투입할 <span class="highlight">예상 금액</span>을 정합니다. 전체 리모델링을 할 것인지, 부분 인테리어를 할 것인지 결정하고, 원하는 디자인 컨셉(미니멀리즘, 북유럽 스타일, 모던 스타일 등)을 명확히 합니다. <span class="highlight">23평</span> 공간에서 <span class="highlight">장단점</span>을 고려하여 꼭 필요한 시공이 무엇인지 우선순위를 정하는 것이 중요합니다.</p>
+
+                <h3>2. 23평 인테리어 업체 선정: 견적 비교와 신뢰성 확인</h3>
+                <p><strong>23평 인테리어 업체</strong>를 선정할 때에는 최소 3곳 이상의 <span class="highlight">견적 비교</span>를 통해 <span class="highlight">가격</span>의 적정성을 판단해야 합니다. <span class="highlight">저렴한곳</span>만을 고집하기보다는, 시공 <span class="highlight">경험</span>과 <span class="highlight">전문성</span>을 확인하는 것이 중요합니다. 특히 <span class="highlight">23평 인테리어 추천</span>을 받은 업체라도, <span class="highlight">내돈내산 후기</span>를 통해 실제 고객의 만족도를 확인해야 합니다. <span class="highlight">안산</span>, <span class="highlight">수원</span>, <span class="highlight">성남</span> 등 지역별 업체 <span class="highlight">순위</span>를 참고하되, 실제 미팅을 통해 소통이 원활한 업체를 선택해야 합니다.</p>
+
+                <h3>3. 시공 진행 및 관리: 계약서 검토 및 공사 감리</h3>
+                <p><strong>23평 인테리어</strong> 계약 시에는 견적서에 명시된 자재 등급, 공사 기간, 추가 비용 발생 조건 등을 꼼꼼히 확인해야 합니다. 특히 <span class="highlight">23평 아파트</span>의 경우 층간 소음이나 공동 주택 관리 규정(ex. <span class="highlight">창호 교체</span>)을 반드시 준수해야 합니다. <span class="highlight">서울</span>이나 <span class="highlight">경기</span> 지역 아파트는 시공 전 관리 사무소의 허가를 받아야 하는 경우가 많습니다. <span class="highlight">23평 아파트 인테리어</span> 시공이 진행되는 동안에는 일정을 체크하고 현장 방문을 통해 마감 상태를 확인해야 만족도를 높일 수 있습니다.</p>
+
+                <h3>4. A/S 및 사후 관리: 인테리어 후기 작성</h3>
+                <p>시공이 완료된 후에도 하자 발생 시 <span class="highlight">A/S</span>를 받을 수 있도록 계약서에 명시된 기간을 확인해야 합니다. 저희는 <span class="highlight">23평 인테리어</span> 시공에 대한 책임감을 가지고 사후 관리까지 철저히 진행합니다. <span class="highlight">내돈내산</span> 후기를 작성해주시면 고객님의 경험이 다른 분들의 <span class="highlight">인테리어 견적 비교</span>에 도움이 될 수 있습니다.</p>
+            </section>
+
+            <section id="faq">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <dl>
+                    <dt tabindex="0" aria-expanded="false" class="faq-toggle">23평 아파트 인테리어, 부분 리모델링 vs 전체 리모델링 중 어떤 것을 선택해야 할까요?</dt>
+                    <dd>아파트 연식에 따라 달라집니다. <span class="highlight">23평 아파트</span>가 지어진 지 15년 이내라면 부분 <span class="highlight">인테리어</span>(벽지, 바닥, 조명 등)로도 충분합니다. 하지만 20년 이상 노후화된 <span class="highlight">아파트</span>라면 배관, 창호, 단열 등 필수적인 공사가 포함된 전체 <span class="highlight">리모델링</span>을 추천합니다. <span class="highlight">23평 인테리어 비용</span>의 <span class="highlight">장단점</span>을 고려하여 결정해야 합니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false" class="faq-toggle">23평 인테리어 시공 기간은 얼마나 걸리나요?</dt>
+                    <dd><strong>23평 전체 인테리어</strong>(올수리)의 경우 평균 3~4주 정도 소요됩니다. 부분 인테리어는 1~2주면 완료될 수 있습니다. <span class="highlight">23평</span> 아파트의 시공 범위에 따라 기간이 달라지며, 특히 <span class="highlight">거실 확장</span>이나 <span class="highlight">구조 변경</span>과 같은 대규모 공사가 포함되면 기간이 늘어날 수 있습니다. <span class="highlight">23평 인테리어 견적</span> 상담 시 상세 일정을 확인하세요.</dd>
+
+                    <dt tabindex="0" aria-expanded="false" class="faq-toggle">23평 인테리어 비용을 줄일 수 있는 방법이 있나요?</dt>
+                    <dd><strong>23평 인테리어 비용</strong>을 절감하기 위한 팁은 다음과 같습니다. 1) 자재 등급을 하향 조정합니다. 2) <span class="highlight">주방</span> 싱크대나 <span class="highlight">욕실</span> 타일 등 고가 자재는 <span class="highlight">가성비</span> 제품을 선택합니다. 3) <span class="highlight">거실 확장</span> 대신 폴딩도어를 설치합니다. 4) <span class="highlight">서울</span>이나 <span class="highlight">경기</span> 지역 인건비가 낮은 비수기를 이용합니다. 5) <span class="highlight">내돈내산</span> 후기를 참고하여 불필요한 공사 항목을 제외합니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false" class="faq-toggle">23평 아파트 인테리어 시공 시 꼭 알아야 할 주의사항은?</dt>
+                    <dd><strong>23평 아파트 인테리어</strong> 시공 전 관리 사무소에 인테리어 신고를 해야 합니다. 층간 소음 예방을 위해 주말, 야간 공사는 피해야 하며, 철거 시에는 폐기물 처리를 위한 신고도 필수입니다. <span class="highlight">23평 인테리어</span> 업체 선정 시 반드시 인테리어 전문 보험 가입 여부를 확인하여 만일의 사태에 대비해야 합니다.</dd>
+                </dl>
+            </section>
+
+            <section id="contact">
+                <h2>23평 인테리어 무료 견적 문의 (2026년)</h2>
+                <p><strong>23평 아파트 인테리어</strong>, 이제 전문가와 상담하세요. 고객님의 라이프스타일과 <span class="highlight">예상 금액</span>에 맞춰 <strong>23평 리모델링</strong> <span class="highlight">견적</span>을 제공해 드립니다. <span class="highlight">서울</span>, <span class="highlight">경기도</span> 전 지역(<span class="highlight">안산</span>, <span class="highlight">수원</span>, <span class="highlight">시흥</span>, <span class="highlight">용인</span>, <span class="highlight">성남</span>, <span class="highlight">고양</span>, <span class="highlight">부천</span> 등) 무료 방문 <span class="highlight">상담</span> 가능합니다.</p>
+
+                <form action="#" method="POST" onsubmit="alert('견적 문의가 접수되었습니다. 곧 연락드리겠습니다.'); return false;">
+                    <label for="name">이름:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="phone">연락처:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="location">이사/거주지 (지역명):</label>
+                    <select id="location" name="location" required>
+                        <option value="">지역 선택</option>
+                        <optgroup label="서울시">
+                            <option value="강남구">강남구</option>
+                            <option value="서초구">서초구</option>
+                            <option value="송파구">송파구</option>
+                            <option value="마포구">마포구</option>
+                            <option value="영등포구">영등포구</option>
+                            <option value="동작구">동작구</option>
+                            <option value="용산구">용산구</option>
+                            <option value="성동구">성동구</option>
+                            <option value="광진구">광진구</option>
+                            <option value="강동구">강동구</option>
+                            <option value="노원구">노원구</option>
+                            <option value="강북구">강북구</option>
+                            <option value="도봉구">도봉구</option>
+                            <option value="중랑구">중랑구</option>
+                            <option value="성북구">성북구</option>
+                            <option value="동대문구">동대문구</option>
+                            <option value="종로구">종로구</option>
+                            <option value="은평구">은평구</option>
+                            <option value="서대문구">서대문구</option>
+                            <option value="양천구">양천구</option>
+                            <option value="강서구">강서구</option>
+                            <option value="구로구">구로구</option>
+                            <option value="금천구">금천구</option>
+                            <option value="관악구">관악구</option>
+                            <option value="중구">중구</option>
+                        </optgroup>
+                        <optgroup label="경기도">
+                            <option value="안산시">안산시</option>
+                            <option value="수원시">수원시</option>
+                            <option value="용인시">용인시</option>
+                            <option value="성남시">성남시</option>
+                            <option value="화성시">화성시</option>
+                            <option value="부천시">부천시</option>
+                            <option value="고양시">고양시</option>
+                            <option value="남양주시">남양주시</option>
+                            <option value="평택시">평택시</option>
+                            <option value="시흥시">시흥시</option>
+                            <option value="파주시">파주시</option>
+                            <option value="김포시">김포시</option>
+                            <option value="의정부시">의정부시</option>
+                            <option value="광주시">광주시</option>
+                            <option value="하남시">하남시</option>
+                            <option value="광명시">광명시</option>
+                            <option value="군포시">군포시</option>
+                            <option value="오산시">오산시</option>
+                            <option value="이천시">이천시</option>
+                            <option value="안성시">안성시</option>
+                            <option value="양주시">양주시</option>
+                            <option value="포천시">포천시</option>
+                            <option value="여주시">여주시</option>
+                            <option value="동두천시">동두천시</option>
+                        </optgroup>
+                    </select>
+
+                    <label for="scope">인테리어 시공 범위:</label>
+                    <select id="scope" name="scope" required>
+                        <option value="">선택</option>
+                        <option value="all">23평 전체 리모델링 (올수리)</option>
+                        <option value="partial">부분 인테리어 (주방/욕실만)</option>
+                        <option value="custom">기타 (상담 필요)</option>
+                    </select>
+
+                    <label for="date">예상 시공 희망 시기:</label>
+                    <input type="text" id="date" name="date" placeholder="예: 2026년 3월 예정">
+
+                    <label for="details">상세 문의 사항 (아파트 연식, 원하는 스타일 등):</label>
+                    <textarea id="details" name="details" rows="5"></textarea>
+
+                    <input type="submit" value="무료 견적 신청하기">
+                </form>
+
+                <div class="keyword-tags" style="margin-top: 1rem;">
+                    <a href="#contact">23평 인테리어 견적 비교</a>
+                    <a href="#contact">23평 인테리어 가격문의</a>
+                    <a href="#contact">23평 리모델링 업체 순위</a>
+                    <a href="#contact">안산 23평 인테리어</a>
+                    <a href="#contact">수원 23평 리모델링</a>
+                </div>
+            </section>
+        </main>
+
+      
+        <script>
+            // FAQ 아코디언 기능 (접기/펼치기)
+            document.querySelectorAll('dl dt.faq-toggle').forEach((dt) => {
+                dt.addEventListener('click', () => {
+                    dt.classList.toggle('active');
+                    let expanded = dt.getAttribute('aria-expanded') === 'true';
+                    dt.setAttribute('aria-expanded', !expanded);
+                    // Hide other open elements
+                    document.querySelectorAll('dl dt.faq-toggle').forEach((otherDt) => {
+                        if (otherDt !== dt && otherDt.classList.contains('active')) {
+                            otherDt.classList.remove('active');
+                            otherDt.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+                dt.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        dt.click();
+                    }
+                });
+            });
+        </script>
+   
+
+
+      
